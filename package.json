@@ -6,7 +6,8 @@
   "scripts": {
     "test": "playwright test",
     "test:ui:mode": "playwright test --ui",
-    "test:api": "playwright test --project='Test API'"
+    "test:api": "playwright test --project='Test API' --workers=1",
+    "test:ui": "playwright test --project='Test UI'"
   },
   "keywords": [],
   "author": "",
