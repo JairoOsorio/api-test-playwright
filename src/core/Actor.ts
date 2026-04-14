@@ -1,5 +1,5 @@
 import {Task} from './Task';
-import {Question} from './Questions';
+import {Question} from './Question';
 
 export class Actor {
     private abilities: Map<string, unknown> = new Map();

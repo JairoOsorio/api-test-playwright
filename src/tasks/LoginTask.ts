@@ -1,7 +1,7 @@
 import { APIResponse } from '@playwright/test';
 import { Actor } from '../core/Actor';
 import { Task } from '../core/Task';
-import { CallAnApi } from '../abilities/CallAnApi';
+import { CallApi } from '../abilities/CallApi';
 import { TokenManager } from '../utils/TokenManager';
 
 
@@ -20,7 +20,7 @@ export class LoginTask implements Task<APIResponse> {
 
     async performAs(actor: Actor): Promise<APIResponse> {
 
-        const api = actor.abilityTo<CallAnApi>(CallAnApi);
+        const api = actor.abilityTo<CallApi>(CallApi);
 
 
         const response = await api.requestContext.post('/auth/login', {

@@ -1,9 +1,9 @@
 import {APIRequestContext} from "@playwright/test";
 
-export class CallAnApi {
-    static readonly abilityName = "CallAnApi";
+export class CallApi {
+    static readonly abilityName = "CallApi";
 
-    readonly name = CallAnApi.abilityName;
+    readonly name = CallApi.abilityName;
 
     private token: string | null = null;
 

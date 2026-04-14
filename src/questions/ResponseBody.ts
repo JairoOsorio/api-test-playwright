@@ -1,5 +1,5 @@
 import { APIResponse } from '@playwright/test';
-import { Question } from '../core/Questions';
+import { Question } from '../core/Question';
 import { Actor } from '../core/Actor';
 
 

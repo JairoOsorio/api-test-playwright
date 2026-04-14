@@ -1,6 +1,6 @@
 import { test, expect, APIResponse } from '@playwright/test';
 import { Actor } from '../../src/core/Actor';
-import { CallAnApi } from '../../src/abilities/CallAnApi';
+import { CallApi } from '../../src/abilities/CallApi';
 import { LoginTask } from '../../src/tasks/LoginTask';
 import { ResponseStatus } from '../../src/questions/ResponseStatus';
 import { ResponseBody } from '../../src/questions/ResponseBody';
@@ -19,7 +19,7 @@ test('TC-01 | Login exitoso — genera y persiste el token', async ({ request })
         ?? (() => { throw new Error('TEST_PASSWORD no está definido en .env'); })();
 
     await test.step('Given: Alice tiene credenciales válidas y puede llamar a la API', async () => {
-        alice = Actor.named('Alice').whoCan(new CallAnApi(request));
+        alice = Actor.named('Alice').whoCan(new CallApi(request));
     });
 
     await test.step('When: Alice intenta hacer login con sus credenciales', async () => {
