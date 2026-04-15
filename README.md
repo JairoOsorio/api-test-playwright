@@ -42,7 +42,7 @@ El framework cubre dos capas de prueba completamente aisladas:
 
 ```bash
 git clone https://github.com/JairoOsorio/api-test-playwright.git
-cd test2
+cd test
 ```
 
 ### 2. Instalar dependencias de Node.js
