@@ -41,7 +41,7 @@ El framework cubre dos capas de prueba completamente aisladas:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/JairoOsorio/api-test-playwright.git
 cd test2
 ```
 
