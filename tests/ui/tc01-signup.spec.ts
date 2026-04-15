@@ -4,9 +4,11 @@ import { BrowseTheWeb } from '../../src/abilities/BrowseTheWeb';
 import { SignUpTask } from '../../src/tasks/SignUpTask';
 
 test('TC-01 | Sign up exitoso — el usuario se registra correctamente', async ({ page }) => {
+
     let bob: Actor;
     let alertMessage: string;
 
+    //creo que voy a usar faker para generar datos mas random
     const username = `testuser_${Date.now()}`;
     const password = 'Test1234!';
 

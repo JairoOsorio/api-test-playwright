@@ -1,5 +1,5 @@
-import {Actor} from './Actor';
+import { Actor } from './Actor';
 
-export interface Task <T> {
-  performAs(actor: Actor): Promise<T>;
+export interface Task<T = void> {
+    performAs(actor: Actor): Promise<T>;
 }

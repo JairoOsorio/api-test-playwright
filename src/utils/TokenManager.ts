@@ -7,10 +7,9 @@ const ENV_PATH = path.resolve(process.cwd(), '.env');
 export class TokenManager {
 
     static save(accessToken: string): void {
+
         const content = fs.existsSync(ENV_PATH) ? fs.readFileSync(ENV_PATH, 'utf-8') : '';
-
         const lines = content.split('\n');
-
         const idx = lines.findIndex(l => l.startsWith('ACCESS_TOKEN='));
 
         if (idx !== -1) {
@@ -18,12 +17,10 @@ export class TokenManager {
         } else {
             lines.push(`ACCESS_TOKEN=${accessToken}`);
         }
-
-        fs.writeFileSync(ENV_PATH, lines.join('\n'), { encoding: 'utf-8' });        
+        fs.writeFileSync(ENV_PATH, lines.join('\n'), { encoding: 'utf-8' });
 
         process.env.ACCESS_TOKEN = accessToken;
-        dotenv.config({override: true});
-
+        dotenv.config({ override: true });
     }
 
     static get(): string | undefined {
@@ -37,5 +34,4 @@ export class TokenManager {
     static exists(): boolean {
         return !!process.env.ACCESS_TOKEN;
     }
-
-}    
+}

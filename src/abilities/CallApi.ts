@@ -1,13 +1,14 @@
-import {APIRequestContext} from "@playwright/test";
+import { APIRequestContext } from '@playwright/test';
 
 export class CallApi {
-    static readonly abilityName = "CallApi";
 
+    static readonly abilityName = 'CallApi';
     readonly name = CallApi.abilityName;
-
     private token: string | null = null;
 
+
     constructor(private readonly request: APIRequestContext) {}
+
 
     withToken(token: string): this {
         this.token = token;
@@ -20,12 +21,11 @@ export class CallApi {
 
     buildHeaders(): Record<string, string> {
         const headers: Record<string, string> = {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
         };
         if (this.token) {
-            headers["Authorization"] = `Bearer ${this.token}`;
+            headers['Authorization'] = `Bearer ${this.token}`;
         }
-    return headers;
-    }    
-
-}   
+        return headers;
+    }
+}

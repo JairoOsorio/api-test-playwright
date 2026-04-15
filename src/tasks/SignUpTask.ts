@@ -14,14 +14,12 @@ export class SignUpTask implements Task<string> {
     }
 
     async performAs(actor: Actor): Promise<string> {
-        const page = actor.abilityTo<BrowseTheWeb>(BrowseTheWeb).currentPage;
 
+        const page = actor.abilityTo<BrowseTheWeb>(BrowseTheWeb).currentPage;
         await page.goto('/');
 
         await page.locator('#signin2').click();
-
         await page.locator('#signInModal').waitFor({ state: 'visible' });
-
         await page.locator('#sign-username').fill(this.username);
         await page.locator('#sign-password').fill(this.password);
 
@@ -32,7 +30,6 @@ export class SignUpTask implements Task<string> {
                 resolve(message);
             });
         });
-
         await page.locator('#signInModal').getByRole('button', { name: 'Sign up' }).click();
 
         return await dialogMessage;

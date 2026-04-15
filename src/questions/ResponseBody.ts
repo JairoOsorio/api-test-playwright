@@ -2,7 +2,6 @@ import { APIResponse } from '@playwright/test';
 import { Question } from '../core/Question';
 import { Actor } from '../core/Actor';
 
-
 export class ResponseBody<T = Record<string, unknown>> implements Question<T> {
 
     private constructor(private readonly response: APIResponse) {}

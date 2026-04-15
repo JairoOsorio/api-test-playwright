@@ -1,20 +1,24 @@
-import {Task} from './Task';
-import {Question} from './Question';
+
+import { Task } from './Task';
+import { Question } from './Question';
 
 export class Actor {
+
+
     private abilities: Map<string, unknown> = new Map();
+    private constructor(public name: string) {}
+
+
     static named(name: string): Actor {
         return new Actor(name);
     }
 
-    private constructor(public name: string) {}
-
-    whoCan(...abilities: {name:string}[]): this {
+    whoCan(...abilities: { name: string }[]): this {
         abilities.forEach(a => this.abilities.set(a.name, a));
         return this;
     }
 
-    abilityTo<T extends {name:string}>(cls: {abilityName: string}): T {
+    abilityTo<T extends { name: string }>(cls: { abilityName: string }): T {
         const ability = this.abilities.get(cls.abilityName);
         if (!ability) {
             throw new Error(`${this.name} does not have the ability to ${cls.abilityName}`);

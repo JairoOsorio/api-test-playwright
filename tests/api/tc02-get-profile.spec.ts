@@ -1,4 +1,3 @@
-
 import { test, expect, APIResponse } from '@playwright/test';
 import { Actor } from '../../src/core/Actor';
 import { CallApi } from '../../src/abilities/CallApi';

@@ -5,6 +5,7 @@ import { TokenManager } from '../../src/utils/TokenManager';
 dotenv.config();
 
 export default async function globalSetup(): Promise<void> {
+
     const username = process.env.TEST_USERNAME;
     const password = process.env.TEST_PASSWORD;
 
@@ -13,6 +14,8 @@ export default async function globalSetup(): Promise<void> {
     }
 
     const baseURL = process.env.BASE_URL as string;
+
+
     const context = await request.newContext({
         baseURL,
         extraHTTPHeaders: { 'Content-Type': 'application/json' },
@@ -30,6 +33,7 @@ export default async function globalSetup(): Promise<void> {
         const body = await response.json();
         TokenManager.save(body.accessToken);
         console.log('[global-setup] Token renovado y guardado en .env');
+
     } finally {
         await context.dispose();
     }

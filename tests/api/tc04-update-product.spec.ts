@@ -6,7 +6,7 @@ import { ResponseStatus } from '../../src/questions/ResponseStatus';
 import { ResponseBody } from '../../src/questions/ResponseBody';
 import { TokenManager } from '../../src/utils/TokenManager';
 
-test('TC-03 | Actualizar producto — los campos enviados se reflejan en la respuesta', async ({ request }) => {
+test('TC-04 | Actualizar producto — los campos enviados se reflejan en la respuesta', async ({ request }) => {
     let dave: Actor;
     let response: APIResponse;
     const productId = 1;

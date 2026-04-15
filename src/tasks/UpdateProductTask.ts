@@ -10,13 +10,11 @@ export interface UpdateProductData {
 
 export class UpdateProductTask implements Task<APIResponse> {
 
-    // Constructor privado — obliga a usar el factory method UpdateProductTask.on()
     private constructor(
         private readonly productId: number,
         private readonly updates: UpdateProductData,
     ) {}
 
-    // Factory method — recibe el id del producto y los campos a actualizar
     static on(productId: number, updates: UpdateProductData): UpdateProductTask {
         return new UpdateProductTask(productId, updates);
     }

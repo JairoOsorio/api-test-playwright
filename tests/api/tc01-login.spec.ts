@@ -6,8 +6,8 @@ import { ResponseStatus } from '../../src/questions/ResponseStatus';
 import { ResponseBody } from '../../src/questions/ResponseBody';
 import { TokenManager } from '../../src/utils/TokenManager';
 
-
 test('TC-01 | Login exitoso — genera y persiste el token', async ({ request }) => {
+
     let alice: Actor;
     let response: APIResponse;
     let status: number;
@@ -27,13 +27,15 @@ test('TC-01 | Login exitoso — genera y persiste el token', async ({ request })
     });
 
     await test.step('Then: La respuesta es 200, incluye un accessToken y persiste el token', async () => {
+
         status = await alice.asks(ResponseStatus.of(response));
         expect(status, 'Debe retornar 200 OK').toBe(200);
 
         body = await alice.asks(ResponseBody.of<{ accessToken: string; username: string }>(response));
-        expect(body.accessToken, 'Debe venir accessToken').toBeTruthy();
-        expect(body.username).toBe(username);
-
+        expect(body.accessToken, 'Debe venir accessToken en el cuerpo').toBeTruthy();
+        expect(body.username, 'El username del cuerpo debe coincidir con el enviado').toBe(username);
         expect(TokenManager.exists(), 'El token debe haberse guardado en .env').toBe(true);
     });
+
+
 });
